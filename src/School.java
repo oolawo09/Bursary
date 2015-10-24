@@ -17,8 +17,9 @@ public class School {
 		currentID++; 
 	}
 	
-	public void payFees(Integer studentId){ 
-		
+	public void payFees(Integer studentId, Integer feeToPay){ 
+		Student student = getStudent(studentId); 
+		student.pay(feeToPay);
 	}
 	
 	public Student getStudent(Integer id){ 
@@ -27,7 +28,8 @@ public class School {
 				return student; 
 			}
 		}	
-	 return null;
+		
+		return null;
 	}
 	
 }
