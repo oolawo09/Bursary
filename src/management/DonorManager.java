@@ -11,7 +11,7 @@ public class DonorManager {
 	
 	private static DonorManager _instance = null; 
 	
-	public DonorManager getDonorManager(){ 
+	public static DonorManager getDonorManager(){ 
 		if(_instance == null){ 
 			_instance = new DonorManager(); 
 		}
@@ -28,7 +28,9 @@ public class DonorManager {
 	
 	public void addDonor(String name, String id){ 
 		Donor donor = new Donor(name, id); 
+		donors.add(donor); 
 	} 
+	
 	
 	
 	

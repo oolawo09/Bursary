@@ -12,7 +12,7 @@ public class StudentManager {
 	
 	private static StudentManager _instance = null; 
 	
-	public StudentManager getDonorManager(){ 
+	public static StudentManager getStudentManager(){ 
 		if(_instance == null){ 
 			_instance = new StudentManager(); 
 		}
