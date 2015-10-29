@@ -4,7 +4,7 @@ public class Donor extends Actor{
 	
 	private Integer totalAmountDonated; 
 
-	Donor(String name, String id) {
+	public Donor(String name, String id) {
 		super(name, id);
 		// TODO Auto-generated constructor stub
 	}

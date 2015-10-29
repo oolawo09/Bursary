@@ -6,7 +6,7 @@ public class Student extends Actor {
 
 
 
-	Student(String name, String id) {
+	public Student(String name, String id) {
 		super(name, id);
 		// TODO Auto-generated constructor stub
 	}
