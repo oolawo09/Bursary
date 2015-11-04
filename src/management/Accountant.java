@@ -1,7 +1,9 @@
 package management;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import actors.Donor;
 import transaction.DonorTransaction;
@@ -38,11 +40,14 @@ public class Accountant {
 	}
 	
 	public Integer getDeposits(){ 
-		List<Donor>donors = donorManager.getDonors(); 
+		Map<Integer, Donor> donors = donorManager.getDonors(); 
 		Integer deposits = 0; 
-		for(Donor donor: donors){ 
-			deposits += donor.getTotalAmountDonated(); 
-		}	
+		Iterator it = donors.entrySet().iterator(); 
+		while(it.hasNext()){ 
+			Map.Entry pair = (Map.Entry) it.next(); 
+			deposits += (Integer)((Donor) pair.getValue()).getTotalAmountDonated(); 
+		}
+		
 		return deposits; 
 	}
 	

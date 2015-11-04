@@ -2,12 +2,14 @@ package actors;
 
 public class Actor {
 	
-	private String name;  
-	private String id;  
+	protected String name;  
+	
+	//look for ways to autogenerate unique ids
+	protected Integer id;  
 	
 	//private List<Transactions> transactions () 
 	
-	Actor(String name, String id){ 
+	Actor(String name, Integer id){ 
 		this.name = name ; 
 		this.id = id; 
 	}
@@ -15,7 +17,7 @@ public class Actor {
 	public String getName() {
 		return name;
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	

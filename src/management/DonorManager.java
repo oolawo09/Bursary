@@ -1,15 +1,19 @@
 package management;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import actors.Donor;
+import idGenerator.ActorIDGenerator;
 
 
 public class DonorManager {
-	private List<Donor> donors;
+	private Map<Integer, Donor> donors;
 	
 	private static DonorManager _instance = null; 
+	private static ActorIDGenerator idGenerator; 
 	
 	public static DonorManager getDonorManager(){ 
 		if(_instance == null){ 
@@ -19,16 +23,23 @@ public class DonorManager {
 	}
 	
 	private DonorManager(){ 
-		donors = new ArrayList<Donor>(); 
+		donors = new HashMap<Integer, Donor>(); 
+		idGenerator = ActorIDGenerator.getActorIDGenerator(); 
 	}
 
-	public List<Donor> getDonors() {
+	public Map<Integer, Donor> getDonors() {
 		return donors;
 	} 
 	
-	public void addDonor(String name, String id){ 
+	public Donor getDonor(Integer id) { 
+		return donors.get(id); 
+	}
+	
+	public void addDonor(String name){ 
+		Integer id = idGenerator.generateID(); 
 		Donor donor = new Donor(name, id); 
-		donors.add(donor); 
+		donor.donate(5000);
+		donors.put(id, donor); 
 	} 
 	
 	

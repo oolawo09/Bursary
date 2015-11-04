@@ -1,21 +1,22 @@
 package transaction;
 
+import org.joda.time.DateTime;
+
 public class Transaction {
 	
 	//will use joda time for this later on 
-	private String dateAndTime;
+	private DateTime dateAndTime;
 	private Integer amount; 
-	private String id; 
+	private Integer id; 
 	
-	Transaction(String dateAndTime, 
-			Integer amount,String id){ 
+	Transaction(Integer amount,Integer id){ 
 		
-		this.dateAndTime= dateAndTime;
+		dateAndTime = new DateTime();
 		this.amount = amount; 
 		this.id = id; 
 	}
 	
-	public String getDateAndTime() {
+	public DateTime getDateAndTime() {
 		return dateAndTime;
 	}
 
@@ -23,7 +24,7 @@ public class Transaction {
 		return amount;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	
