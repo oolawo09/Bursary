@@ -28,5 +28,9 @@ public class Transaction {
 		return id;
 	}
 	
+	public String toString(){ 
+		return "amount: "+amount+" id: "+id;  
+	}
+	
 	
 }

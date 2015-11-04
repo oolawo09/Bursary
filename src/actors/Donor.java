@@ -39,8 +39,7 @@ public class Donor extends Actor{
 	}
 	
 	public String toString(){
-		return "name: " + name + " id: " + id +" TotalAmountDonated: "+ totalAmountDonated; 
-		
+		return "name: " + name + " id: " + id +" TotalAmountDonated: "+ totalAmountDonated; 	
 	}
 
 }

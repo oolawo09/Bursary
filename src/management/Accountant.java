@@ -13,8 +13,8 @@ public class Accountant {
 	private Integer totalFundsAvailable; 
 	private Integer fundsDisbursed; 
 	
-	private DonorManager donorManager; 
-	private StudentManager studentManager; 
+	public DonorManager donorManager; 
+	public StudentManager studentManager; 
 	
 	private List<DonorTransaction> donations; 
 	private List<StudentTransaction> awards; 
@@ -46,9 +46,13 @@ public class Accountant {
 		while(it.hasNext()){ 
 			Map.Entry pair = (Map.Entry) it.next(); 
 			deposits += (Integer)((Donor) pair.getValue()).getTotalAmountDonated(); 
-		}
-		
+		}	
 		return deposits; 
+	}
+	
+	public void disburseEqually(){ 
+		
+		
 	}
 	
 	public void disburseEverything(){ 

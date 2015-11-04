@@ -35,6 +35,18 @@ public class DonorManager {
 		return donors.get(id); 
 	}
 	
+	public void donateByID(Integer amount, Integer id){ 
+		Donor donor = getDonor(id); 
+		donor.donate(amount); 
+	}
+	
+	public void addDonors(){ 
+		//using dummy data here
+		for(Integer i=0; i<10; i++){ 
+			addDonor("donor "+i.toString());
+		}
+	}
+	
 	public void addDonor(String name){ 
 		Integer id = idGenerator.generateID(); 
 		Donor donor = new Donor(name, id); 

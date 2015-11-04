@@ -9,7 +9,10 @@ public class Main {
 		public static void main(String []args){ 
 			Main main = new Main(); 
 			main.mainManager = MainManager.getManager(); 
-			mainManager.addDonors(); 
+			mainManager.accountant.donorManager.addDonors();
+			System.out.println(mainManager.accountant.getDeposits()); 
+			mainManager.accountant.studentManager.addStudents(); 
+			
 		}
 		
 	
