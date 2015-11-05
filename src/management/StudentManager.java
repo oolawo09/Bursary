@@ -48,6 +48,8 @@ public class StudentManager {
 		Integer id = idGenerator.generateID(); 
 		Student student = new Student(name,id ); 
 		students.put(id, student); 
-	} 
+	}
+	
+	
 	
 }
