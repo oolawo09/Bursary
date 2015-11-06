@@ -55,6 +55,55 @@ public class CommandLineInterface {
 		
 		options.addOption(addDonor); 
 		
+		Option listDonors = new Option("listDonors", "list all donors");
+		options.addOption(listDonors); 
+		
+		@SuppressWarnings({ "unused", "deprecation", "static-access" })
+		Option getDonor = OptionBuilder.hasArgs()
+				.withArgName("donorID")	
+				.withDescription("get a donor's information by id")
+				.create("getDonor"); 
+		
+		options.addOption(getDonor); 
+		
+		@SuppressWarnings({ "unused", "deprecation", "static-access" })
+		Option donate = OptionBuilder.hasArgs(2)
+				.withArgName("donorID> <donation")	
+				.withDescription("Register a donor's donation by id")
+				.create("donate"); 
+		
+		options.addOption(donate); 
+		
+		@SuppressWarnings({ "unused", "deprecation", "static-access" })
+		Option addStudent = OptionBuilder.hasArgs()
+				.withArgName("studentName> <need")	
+				.withDescription("add a new student and their need")
+				.create("addStudent"); 
+		
+		options.addOption(addStudent); 
+		
+		Option listStudents = new Option("listStudents", "list all students");
+		options.addOption(listStudents); 
+		
+		@SuppressWarnings({ "unused", "deprecation", "static-access" })
+		Option getStudent = OptionBuilder.hasArgs()
+				.withArgName("studentID")	
+				.withDescription("get a student's information by id")
+				.create("getStudent"); 
+		
+		options.addOption(getStudent); 
+		
+		Option award = new Option("award", "award all students money equally"); 
+		options.addOption(award); 
+		
+		Option getBalance = new Option("getBalance", "return current bursary balance"); 
+		options.addOption(getBalance); 
+		
+		Option getDonationList = new Option("getDonationList", "get list off all donations"); 
+		options.addOption(getDonationList); 
+		
+		Option getAwardList = new Option("getAwardList", "get list off all awards"); 
+		options.addOption(getAwardList); 
 		
 		
 		/*@SuppressWarnings({ "unused", "deprecation", "static-access" })
