@@ -26,9 +26,7 @@ public class CommandLineInterface {
 
 	public CommandLineInterface(){ 
 		init(); 
-
 		//parsing 
-
 	}
 
 	public void init (){ 
@@ -40,8 +38,9 @@ public class CommandLineInterface {
 				, options); 
 		reader = new Reader("db"); 
 		writer = new Writer("db"); 
-		
+
 		manager = reader.read(); 
+		//System.out.println(manager.accountant.donorManager.getDonors());
 		if(manager == null ){ 
 			manager = new MainManager();
 		}
@@ -146,6 +145,12 @@ public class CommandLineInterface {
 					, options); 
 
 		}
+		
+		if(line.hasOption("disburse")){ 
+			System.out.println("funds disbursed"); 
+			System.out.println("-------------------------------"); 
+			manager.accountant.disburseEqually();
+		}
 
 		if(line.hasOption("addDonor")){ 
 			String [] arguments = line.getOptionValues("addDonor");  
@@ -202,6 +207,14 @@ public class CommandLineInterface {
 			System.out.println(manager.accountant.studentManager.getAwardsList()); 
 		}
 		
+		if(line.hasOption("getBalance")){ 
+			String [] arguments = line.getOptionValues("getAwardList"); 
+			System.out.println("awards"); 
+			System.out.println("-------------------------------"); 
+			System.out.println(manager.accountant.studentManager.getAwardsList()); 
+		}
+		
+			
 		writer.write(manager);
 
 	}
