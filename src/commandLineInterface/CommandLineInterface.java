@@ -10,6 +10,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import management.MainManager;
+import storage.Reader;
+import storage.Writer;
 
 public class CommandLineInterface {
 	private CommandLineParser parser; 
@@ -17,6 +19,8 @@ public class CommandLineInterface {
 	private CommandLine line; 
 	private HelpFormatter formatter; 
 	private MainManager manager; 
+	private Reader reader; 
+	private Writer writer; 
 
 
 
@@ -34,7 +38,15 @@ public class CommandLineInterface {
 		formatter = new HelpFormatter(); 
 		formatter.printHelp("bur.sa.ry  \n"
 				, options); 
-		manager = new MainManager(); 
+		reader = new Reader("db"); 
+		writer = new Writer("db"); 
+		
+		manager = reader.read(); 
+		if(manager == null ){ 
+			manager = new MainManager();
+		}
+		 
+		
 	}
 
 
@@ -189,10 +201,8 @@ public class CommandLineInterface {
 			System.out.println("-------------------------------"); 
 			System.out.println(manager.accountant.studentManager.getAwardsList()); 
 		}
-
-
-
-
+		
+		writer.write(manager);
 
 	}
 

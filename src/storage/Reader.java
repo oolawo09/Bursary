@@ -9,6 +9,7 @@ import java.util.HashMap;
 import com.google.gson.Gson;
 
 import actors.Actor;
+import management.MainManager;
 
 
 public class Reader extends SuperReadWrite{
@@ -28,7 +29,7 @@ public class Reader extends SuperReadWrite{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public HashMap<Integer,Actor> read(){ 
+	public MainManager read(){ 
 		String out=""; 
 		try {
 			while((out = bufferedReader.readLine()) != null ){ 
@@ -47,7 +48,7 @@ public class Reader extends SuperReadWrite{
 			
 		}
 		
-		return gson.fromJson(out, HashMap.class) ; 
+		return gson.fromJson(out, MainManager.class) ; 
 
 	}
 	
