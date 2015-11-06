@@ -19,12 +19,8 @@ public class MainManager {
 		return _instance;
 	}
 
-	private MainManager() {
+	public MainManager() {
 		accountant = Accountant.getAccountant();
 	}
-	
-
-	
-
 
 }

@@ -12,10 +12,11 @@ public class Donor extends Actor{
 	private List<DonorTransaction> donations; 
 	private TransactionIDGenerator idGenerator = TransactionIDGenerator.getTransactionIDGenerator(); 
 
-	public Donor(String name, Integer id) {
+	public Donor(String name, Integer id, Integer donation) {
 		super(name, id);
 		totalAmountDonated = 0; 
 		donations  = new ArrayList<DonorTransaction>(); 
+		donate(donation); 
 		// TODO Auto-generated constructor stub
 	}
 
@@ -39,7 +40,10 @@ public class Donor extends Actor{
 	}
 	
 	public String toString(){
-		return "name: " + name + " id: " + id +" TotalAmountDonated: "+ totalAmountDonated; 	
+		return "name: " + name + "\n id: " + id +"\n TotalAmountDonated: "+ totalAmountDonated
+				+"\n list of donations: \n"
+				+"-------------------------\n"
+				+donations; 	
 	}
 
 }

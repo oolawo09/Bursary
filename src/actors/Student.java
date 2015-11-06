@@ -15,11 +15,12 @@ public class Student extends Actor {
 
 
 
-	public Student(String name, Integer id) {
+	public Student(String name, Integer id, Integer need) {
 		super(name, id);
 		amountNeeded = 0; 
 		awards = new ArrayList<StudentTransaction>(); 
 		idGenerator.getTransactionIDGenerator(); 
+		addToAmountNeeded(need); 
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -47,7 +48,10 @@ public class Student extends Actor {
 	}
 	
 	public String toString(){
-		return "name: " + name + " id: " + id +" amountNeeded: "+ amountNeeded; 	
+		return "name: " + name + "\n id: " + id +"\n amountNeeded: "+ amountNeeded 
+				+"\n list of awards: \n"
+				+"--------------------\n"
+				+awards; 	
 	}
 	
 }

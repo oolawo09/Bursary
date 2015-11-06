@@ -2,6 +2,7 @@ package management;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,8 @@ import actors.Actor;
 import actors.Donor;
 import actors.Student;
 import idGenerator.ActorIDGenerator;
+import transaction.DonorTransaction;
+import transaction.StudentTransaction;
 
 public class StudentManager {
 	private Map<Integer, Student> students;
@@ -36,18 +39,23 @@ public class StudentManager {
 		return students;
 	} 
 	
-	public void addStudents(){ 
-		//using dummy data here
-		for(Integer i=0; i<10; i++){ 
-			addStudent("student "+i.toString());
-			System.out.println(getStudent(10+i)); 
+	public List<StudentTransaction> getAwardsList(){ 
+		ArrayList<StudentTransaction> transactions = new ArrayList<StudentTransaction>(); 
+		Iterator it = students.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry)it.next();
+			System.out.println(pair.getKey() + " = " + pair.getValue());
+			transactions.add((StudentTransaction) pair.getValue()); 
+			it.remove(); // avoids a ConcurrentModificationException
 		}
+		return transactions; 
 	}
-	
-	public void addStudent(String name){ 
+
+	public void addStudent(String name, Integer need){ 
 		Integer id = idGenerator.generateID(); 
-		Student student = new Student(name,id ); 
+		Student student = new Student(name,id ,need); 
 		students.put(id, student); 
+		System.out.println(students);
 	}
 	
 	
