@@ -1,17 +1,16 @@
 package main;
 
+import commandLineInterface.CommandLineInterface;
 import management.MainManager;
 
 public class Main {
 
-		private static MainManager mainManager; 
+
+		private static CommandLineInterface cli; 
 		
 		public static void main(String []args){ 
 			Main main = new Main(); 
-			main.mainManager = MainManager.getManager(); 
-			mainManager.accountant.donorManager.addDonors();
-			System.out.println(mainManager.accountant.getDeposits()); 
-			mainManager.accountant.studentManager.addStudents(); 
+			main.cli = new CommandLineInterface(); 
 			
 		}
 		
